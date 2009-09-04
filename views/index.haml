@@ -1,0 +1,18 @@
+%html
+    %body
+
+        - if @urls.empty?
+            .info
+                %strong tally-ho!
+                .text enter a url and I'll give you five back.
+        - else
+            .output
+                %p I'd recommend you to have a look at these:
+                %div{:style => 'margin-left: 20;'}
+                    - @urls.each do |url|
+                        %p= url
+
+        .form{:style => 'margin-top: 20;'}
+            %form{:action => '/'}
+                %input{:name => 'url', :size => 40, :value => @url }
+                %input{:type => 'submit', :value => 'mm!'}
